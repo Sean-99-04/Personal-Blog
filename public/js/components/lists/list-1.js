@@ -57,5 +57,7 @@ if (window.innerWidth >= 768) {
 
 // We need this for something?
 console.log(window.innerWidth);
-
+console.log(screen.width);
+const nav = document.querySelector("nav");
+console.log(nav);
 // Continue here for "categories"

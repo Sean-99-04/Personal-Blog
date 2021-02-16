@@ -44,11 +44,6 @@ searchInput.forEach((input) => {
         });
       }
     });
-    // if (!e.target.classList.contains("search-list")) {
-    //   searchList.forEach((list) => {
-    //     list.style.display = "none";
-    //   });
-    // }
   });
 });
 
@@ -63,16 +58,7 @@ searchInput.forEach((input) => {
   });
 });
 
-// searchList.forEach((list) => {
-//   list.addEventListener("focusout", (e) => {
-//     console.log(list);
-//     console.log(e.target);
-//     e.target.style.display = "none";
-//   });
-// });
-
 const searchForm = document.querySelectorAll(".search-form")[0];
-// const searchForms = document.querySelectorAll(".search-form");
 
 searchListItems.forEach((item) => {
   item.addEventListener("click", (e) => {

@@ -53,11 +53,12 @@ p {
 
 .nav {
   & > .logo {
+    // border: 1px solid white;
     & > a {
       font-size: 40px;
       padding: {
-        left: 10px;
-        right: 10px;
+        left: 0px;
+        right: 0px;
       }
       @media screen and (max-width: var.$phone) {
         font-size: 30px;
@@ -65,7 +66,7 @@ p {
     }
   }
   & > .title {
-    padding: 8px 10px;
+    padding: 8px 0px;
     text-align: center;
     font-size: 30px;
     font-weight: 500;
@@ -78,12 +79,15 @@ p {
   }
   & > .empty {
     display: inline-flex;
-    min-width: 100px;
+    min-width: 70px;
     max-width: 100px;
     height: 100%;
-    border: 1px solid white;
+    // border: 1px solid white;
     @media screen and (min-width: var.$laptop) {
       display: none;
+    }
+    @media screen and (max-width: var.$phone) {
+      // display: none;
     }
   }
   & .hr-list {
@@ -179,6 +183,7 @@ p {
 .side-nav {
   border-left-color: $primary-color;
   background-color: $secondary-color;
+
   & > p,
   > ul {
     color: $primary-color;
