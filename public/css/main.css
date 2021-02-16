@@ -1458,7 +1458,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #e3f1ee;
+  background-color: #959cac;
 }
 
 p {
@@ -1644,7 +1644,7 @@ p {
 }
 
 .card-container .card {
-  background-color: #daede8;
+  background-color: #e0e0e0;
   -webkit-box-shadow: 0 0 15px 2px #2c3531;
           box-shadow: 0 0 15px 2px #2c3531;
 }

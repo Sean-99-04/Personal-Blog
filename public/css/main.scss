@@ -29,7 +29,8 @@ $quaternary-color: #d1e8e2; // 4
 
 body {
   @include pre.flex-center($direction: column);
-  background-color: mix(white, $quaternary-color, 40);
+  // background-color: mix(white, $quaternary-color, 40);
+  background-color: mix(white, #677189, 30);
   // background-color: $quaternary-color;
 }
 
@@ -222,7 +223,8 @@ p {
 .card-container {
   .card {
     // background-color: $quaternary-color;
-    background-color: mix(white, $quaternary-color, 20);
+    // background-color: mix(white, $quaternary-color, 30);
+    background-color: mix(black, #fff, 12);
     box-shadow: 0 0 15px 2px $secondary-color;
     &--block {
       max-height: 200px;
