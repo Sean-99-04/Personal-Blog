@@ -1,0 +1,136 @@
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="nav">
+      <p class="logo"><a href="/">logo</a></p>
+      <p class="title">The Aspiring Renaissance Man</p>
+      <div class="empty"></div>
+      <ul class="hr-list">
+        <li><a href="">HOME</a></li>
+        <li><a href="">ABOUT</a></li>
+        <li>
+          <label class="dropdown-label dropLabel" 
+            ><span>CATEGORIES</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 21l-12-18h24z" /></svg
+          ></label>
+          <ul class="hr-list--dropdown dropList categories-list"> <!--categories-list is just for javascript-->
+            {{!-- {{#each tags}}
+              <li>{{this}}</li>
+            {{/each}} --}}
+            <li>Science</li>
+            <li>History</li>
+            <li>Mathematics</li>
+            <li>Psychology</li>
+            <li>Computer Science</li>
+          </ul>
+        </li>
+        <form action="" method="GET" class="search-form">
+          <div class="form-group">
+            <label for="hr-search"><i class="fas fa-search"></i></label>
+            <input type="search" id="hr-search" placeholder="Search..." autocomplete="off" class="search-category search-input" />
+          </div>
+          <ul class="search-list">
+              {{#each tags}}
+                  <li>{{this}}</li>
+              {{/each}}
+          </ul>
+        </form>
+      </ul>
+      {{!-- <input type="checkbox" id="menu-burger-checkbox" checked="true"/> --}}
+      <input type="checkbox" id="menu-burger-checkbox"/>
+      <label
+        for="menu-burger-checkbox"
+        class="menu-burger-xl"
+        id="menu-burger-nav"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <!-- ===== SIDE NAVIGATION ===== -->
+      <nav class="side-nav">
+        <div id="burger-container">
+          <label
+            for="menu-burger-checkbox"
+            class="menu-burger-xl"
+            id="menu-burger-side-nav"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        <ul class="vr-list">
+          <li><a href="">Home</a></li>
+          <li><a href="">About</a></li>
+          <li>
+            <label class="dropdown-label dropLabel"
+              ><span>Categories</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 21l-12-18h24z" /></svg
+            ></label>
+            <ul class="vr-list--dropdown dropList categories-list">
+              <li>Science</li>
+              <li>History</li>
+              <li>Mathematics</li>
+              <li>Psychology</li>
+              <li>Computer Science</li>
+            </ul>
+          </li>
+          <li><a href="">+ More</a></li>
+          <form action="" method="GET" class="search-form">
+            <label for="vr-search"><i class="fas fa-search"></i></label>
+            <input type="text" id="vr-search" placeholder="Search..." autocomplete="off" class="search-category search-input" />
+            <ul class="search-list">
+                {{#each tags}}
+                    <li>{{this}}</li>
+                {{/each}}
+            </ul>
+          </form>
+        </ul>
+      </nav>
+      <!-- ===== END OF SIDE NAVIGATION ===== -->
+    </nav>
+    <!-- ===== END OF NAVIGATION ===== -->
+
+    <!-- =====  SIDE MENU ===== -->
+    <input type="checkbox" id="side-menu" />
+    <div class="side-menu">
+      <label class="side-menu--lever" for="side-menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 21l-12-18h24z" /></svg
+      ></label>
+      <a href="" class="side-menu--item"> <i class="fab fa-github"></i></a>
+      <a href="" class="side-menu--item"> <i class="fab fa-telegram"></i></a>
+      <a href="" class="side-menu--item"><i class="fab fa-youtube"></i></a>
+      {{#if logged}}
+        <a href="" class="side-menu--item f-size-3xl popupBtn" >+</a>
+      {{/if}}
+      {{#unless logged}}
+        <a href="" class="side-menu--item f-size-3xl popupBtn d-none" >+</a>
+      {{/unless}}
+      <a href="#footer" class="side-menu--item"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+        >
+          <path d="M12 21l-12-18h24z" /></svg
+      ></a>
+    </div>
+    <!-- ===== END OF SIDE MENU ===== -->

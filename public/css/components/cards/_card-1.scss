@@ -1,0 +1,83 @@
+@use './../../utilities/presets' as pre;
+@use './../../utilities/variables' as var;
+
+.card-container {
+  padding: 1rem;
+  width: 70vw;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  column-gap: 4rem;
+  row-gap: 2rem;
+  @media screen and (max-width: var.$tablet) {
+    width: 100vw;
+  }
+  & .card {
+    padding: 12px;
+    min-width: 300px;
+    max-width: 100%;
+    min-height: 100px;
+    box-shadow: 0 0 15px 2px #333;
+    background-color: #fff;
+    &--block {
+      width: 100%;
+      height: auto;
+      padding-bottom: 10px;
+      font-size: 1.1em;
+      font-weight: 300;
+      & a {
+        text-decoration: none;
+        color: #fff;
+        @include pre.basic-transition($duration: 0.3s);
+        &:hover {
+          color: mix(black, yellow, 20);
+        }
+      }
+    }
+    & > .title {
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 500;
+    }
+    & > .timestamp {
+      font-size: 0.7em;
+      font-weight: 300;
+    }
+    & > .socials {
+      & > a > i {
+        padding: 4px 10px;
+        font-size: 40px;
+        color: #333;
+        @include pre.basic-transition($duration: 0.3s);
+        &:hover {
+          color: mix(black, red, 20);
+        }
+      }
+    }
+  }
+}
+
+// COLOR MODIFICATIONS //
+// .card-container {
+//   .card {
+//     background-color: $quaternary-color;
+//     box-shadow: 0 0 15px 2px $secondary-color;
+//     &--block {
+//       & a {
+//         color: $secondary-color;
+//         &:hover {
+//           color: mix(black, $primary-color, 20);
+//         }
+//       }
+//     }
+//     & > .socials {
+//       & > a > i {
+//         color: $secondary-color;
+//         &:hover {
+//           color: mix(black, $primary-color, 20);
+//         }
+//       }
+//     }
+//   }
+// }
+// END OF COLOR MODIFICATIONS //

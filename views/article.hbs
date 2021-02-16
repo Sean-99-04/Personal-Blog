@@ -6,30 +6,25 @@
 {{!-- Actual production code below --}}
 {{#unless logged}}
     <div class="card-container">
-        {{#each articles}}
             <div class="card">
-                <div class="card--block title">{{this.title}}</div>
-                <div class="card--block timestamp">{{this.dateCreated}}</div>
-                <div class="card--block content">{{this.content}}</div>
-                <div class="card--block"><a href="/article/{{this._id}}">Read More +</a></div>
+                <div class="card--block title">{{article.title}}</div>
+                <div class="card--block timestamp">{{article.dateCreated}}</div>
+                <div class="card--block long">{{article.content}}</div>
                 <div class="card--block socials">
                     <a href=""><i class="fab fa-github"></i></a>
                     <a href=""><i class="fab fa-telegram"></i></a>
                     <a href=""><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-        {{/each}}
     </div>
 {{/unless}}
 
 {{#if logged}}
     <div class="card-container">
-        {{#each articles}}
             <div class="card">
-                <div class="card--block title">{{this.title}}</div>
-                <div class="card--block timestamp">{{this.dateCreated}}</div>
-                <div class="card--block content">{{this.content}}</div>
-                <div class="card--block"><a href="/article/{{this._id}}">Read More +</a></div>
+                <div class="card--block title">{{article.title}}</div>
+                <div class="card--block timestamp">{{article.dateCreated}}</div>
+                <div class="card--block long">{{article.content}}</div>
                 <div class="card--block socials">
                     <a href=""><i class="fab fa-github"></i></a>
                     <a href=""><i class="fab fa-telegram"></i></a>
@@ -46,7 +41,6 @@
                     </div>
                 </div>
             </div>
-        {{/each}}
     </div>
 {{/if}}
 

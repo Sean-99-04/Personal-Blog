@@ -1,0 +1,147 @@
+@use '../../utilities/presets' as pre;
+
+footer {
+  @include pre.flex-center($direction: column);
+  .footer {
+    border-top: 2px solid #fff;
+    width: 100vw;
+    min-height: 200px;
+    background-color: #333;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    position: relative;
+    & > .section {
+      @include pre.flex-center(
+        $direction: column,
+        $justify: flex-start,
+        $align: flex-start
+      );
+      color: #fff;
+      padding: 30px 15px 30px 30px;
+
+      & .about-me {
+        &--title {
+          font-size: 25px;
+          font-weight: 900;
+        }
+      }
+
+      & .menu {
+        list-style-type: none;
+
+        & > li {
+          padding-top: 6px;
+        }
+
+        &--title {
+          font-size: 25px;
+          font-weight: 900;
+          border-bottom: 1px solid #fff;
+        }
+      }
+
+      & .socials {
+        width: 80%;
+        & > a {
+          text-decoration: none;
+          display: inline-flex;
+          cursor: pointer;
+          padding: 10px;
+          &:hover > i {
+            color: mix(white, blue, 60);
+          }
+          &:nth-child(1) {
+            padding-left: 0;
+          }
+          & > i {
+            @include pre.basic-transition($duration: 0.3s);
+            font-size: 30px;
+            color: #fff;
+          }
+        }
+      }
+
+      & .footer-form {
+        width: 80%;
+        & input {
+          @include pre.basic-transition();
+          width: 150px;
+          height: 30px;
+          padding-left: 6px;
+          margin-top: 10px;
+        }
+
+        & button {
+          @include pre.basic-transition($duration: 0.3s);
+          cursor: pointer;
+          width: 150px;
+          height: 30px;
+          border: none;
+          margin-top: 10px;
+
+          &:hover {
+            background-color: mix(white, blue, 60);
+          }
+        }
+      }
+    }
+    &--sub {
+      width: 100vw;
+      min-height: 30px;
+      border-top: 2px solid #fff;
+      background-color: #333;
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      row-gap: 20px;
+      align-items: center;
+      & > span,
+      > a {
+        padding: 0px 30px;
+      }
+      & > a {
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// COLOR MODIFICATIONS //
+// .footer {
+//   border-top-color: $primary-color;
+//   background-color: $secondary-color !important;
+//   & > .section {
+//     color: #fff;
+//   }
+//   & .menu {
+//     &--title {
+//       border-bottom-color: #fff;
+//     }
+//   }
+//   & .socials {
+//     & > a {
+//       &:hover > i {
+//         color: $primary-color !important;
+//       }
+//       & > i {
+//         color: #fff;
+//       }
+//     }
+//   }
+//   & .footer-form {
+//     & button {
+//       &:hover {
+//         background-color: $primary-color !important;
+//       }
+//     }
+//   }
+//   &--sub {
+//     border-top-color: #fff;
+//     background-color: $secondary-color !important;
+//     & > a {
+//       color: #fff;
+//     }
+//   }
+// }
+// END OF COLOR MODIFICATIONS //

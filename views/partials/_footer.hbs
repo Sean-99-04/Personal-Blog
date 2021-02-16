@@ -1,0 +1,53 @@
+<!-- ============ FOOTER ============ -->
+    <footer>
+      <div class="footer" id="footer">
+        <div class="section">
+          <div class="about-me">
+            <span class="about-me--title">About Me</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id
+              cumque aliquam similique, voluptates ipsa eligendi saepe esse
+              accusamus labore aspernatur magnam? Doloremque laudantium aliquam
+              consectetur iusto ab consequatur libero laborum.
+            </p>
+          </div>
+        </div>
+        <div class="section">
+          <ul class="menu">
+            <li class="menu--title">Menu</li>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <div class="section">
+          <div class="socials">
+            <a href=""><i class="fab fa-github"></i></a>
+            <a href=""><i class="fab fa-telegram"></i></a>
+            <a href=""><i class="fab fa-youtube"></i></a>
+          </div>
+          <form action="/subscribe" method="POST" class="footer-form">
+            <input type="text" name="name" placeholder="nickname..." required="true" minlength="1" maxlength="20" autocomplete="off"/><br />
+            <input type="email" name="email" placeholder="email address..." required="true"/><br />
+            <button type="submit">SUBSCRIBE</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer--sub">
+        <span>&copy; 2021 copyright</span>
+        {{#if logged}}
+          <form action="/logout" method="POST">
+            <button type="submit" class="underline">Logout</button>
+          </form>
+        {{/if}}
+        {{#unless logged}}
+          <a href="" class="popupBtn underline">Admin Login</a>
+          <div class="popup">
+              {{> _form-login}}
+          </div>
+        {{/unless}}
+        <a href="">Privacy Policy</a>
+        <a href="">Terms and Conditions</a>
+      </div>
+    </footer>
+    <!-- ============ END OF FOOTER ============ -->

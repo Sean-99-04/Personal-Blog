@@ -1,0 +1,78 @@
+@use './../../utilities/presets' as pre;
+@use './../../utilities/variables' as var;
+
+#menu-burger-checkbox:checked ~ .side-nav {
+  right: 0;
+}
+
+.side-nav {
+  @include pre.basic-transition($duration: 0.7s);
+  width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -250px;
+  z-index: 3; // This is to bring the side-nav in front of the side-menu
+
+  border-left: 2px solid #000;
+  & > #burger-container {
+    width: 100%;
+    height: 80px;
+    position: relative;
+    & > #menu-burger-side-nav {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+  }
+  & > ul {
+    padding: {
+      top: 10px;
+      left: 10px;
+    }
+  }
+  @media screen and (max-width: var.$phone) {
+    min-width: 100vw !important;
+    width: 100vw;
+    right: -100vw;
+    border-left: none;
+    & > .vr-list {
+      font-size: 32px;
+    }
+  }
+}
+
+// === HTML CODE === //
+// <nav class="side-nav">
+// <div id="burger-container">
+// <label
+// for="menu-burger-checkbox"
+// class="menu-burger-xl"
+// id="menu-burger-side-nav"
+// >
+// <span></span>
+// <span></span>
+// <span></span>
+// </label>
+// </div>
+// <ul>
+// <li>Home</li>
+// <li>About</li>
+// <li>Contact</li>
+// </ul>
+// </nav>
+// === END OF HTML CODE === //
+
+// === COLOR MODIFICATION === //
+// .side-nav {
+//   border-left-color: $primary-color;
+//   background-color: $secondary-color;
+//   & > p,
+//   > ul {
+//     color: $primary-color;
+//   }
+//   & > #burger-container > #menu-burger-side-nav > span {
+//     background-color: $primary-color;
+//   }
+// }
+// === END OF COLOR MODIFICATION === //

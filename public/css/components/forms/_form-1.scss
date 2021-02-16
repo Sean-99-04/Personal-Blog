@@ -1,0 +1,46 @@
+@use './../../utilities/presets' as pre;
+
+.form {
+  @include pre.flex-center($direction: column, $justify: space-around);
+  margin: 0 10px;
+  min-width: 300px;
+  max-width: 400px;
+  height: 200px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  & > input {
+    width: 80%;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+  }
+  & > button {
+    @include pre.basic-transition();
+    padding: 5px 30px;
+    border-radius: 5px;
+    border: 2px solid #333;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+      background-color: #333;
+    }
+  }
+}
+
+// COLOR MODIFICATIONS //
+// .form {
+//   background-color: $secondary-color;
+//   border-color: $primary-color;
+//   & > button {
+//     color: $primary-color;
+//     background-color: $secondary-color;
+//     border-color: $primary-color;
+//     &:hover {
+//       background-color: $primary-color;
+//     }
+//   }
+// }
+// END OF COLOR MODIFICATIONS //

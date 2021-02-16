@@ -1,0 +1,70 @@
+$desktop: 1200px;
+$laptop: 1024px;
+$tablet: 768px;
+$phone: 480px;
+
+$font-sizes: (
+  "xs": 10px,
+  "small": 15px,
+  "regular": 20px,
+  "large": 25px,
+  "xl": 30px,
+  "2xl": 35px,
+  "3xl": 40px,
+  "4xl": 45px,
+);
+@each $name, $value in $font-sizes {
+  .f-size-#{$name} {
+    font-size: #{$value} !important;
+  }
+}
+
+$font-weights: (
+  "1": 100,
+  "2": 200,
+  "3": 300,
+  "4": 400,
+  "5": 500,
+  "6": 600,
+  "7": 700,
+  "8": 800,
+  "9": 900,
+  "light": 100,
+  "bold": 900,
+);
+
+$margin-top: (
+  "1": 5px,
+  "2": 10px,
+  "3": 15px,
+  "4": 20px,
+  "5": 25px,
+  "6": 30px,
+  "7": 35px,
+  "8": 40px,
+  "9": 45px,
+  "10": 50px,
+  "11": 55px,
+  "12": 60px,
+  "13": 65px,
+);
+
+$margin-top-2: (
+  10px 20px 30px 40px 50px 60px 70px 80px 90px 100px 110px 120px 130px 140px
+    150px
+);
+
+.d-none {
+  display: none !important;
+}
+
+.pos-fixed-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.jusitfy--space-around {
+  justify-content: space-around !important;
+}

@@ -1,0 +1,25 @@
+@use 'variables' as var;
+
+@each $name, $value in var.$font-sizes {
+  .f-size-#{$name} {
+    font-size: $value;
+  }
+}
+
+@each $name, $value in var.$font-weights {
+  .f-weight-#{$name} {
+    font-weight: $value;
+  }
+}
+
+@each $name, $value in var.$margin-top {
+  .m-t-#{$name} {
+    margin-top: $value;
+  }
+}
+
+@each $margin in var.$margin-top-2 {
+  .m-t-2-#{$margin} {
+    margin-top: $margin;
+  }
+}

@@ -1,0 +1,91 @@
+@use './../../utilities/presets' as pre;
+
+.form-2 {
+  border-radius: 8px;
+  width: 400px;
+  height: auto;
+  padding: 20px;
+  @include pre.flex-center($direction: column);
+  &__group {
+    width: 100%;
+    height: auto;
+    @include pre.flex-center();
+    position: relative;
+    & label {
+      width: 35%;
+      text-align: right;
+      padding-right: 5px;
+    }
+    & input {
+      width: 65%;
+      padding: 5px 6px;
+      margin: 10px 0;
+      border: 1px solid transparent;
+    }
+    & span {
+      position: absolute;
+      left: 35%;
+      top: 100%;
+      width: 65%;
+      height: auto;
+      font-size: 0.7em;
+      padding: 6px 8px;
+      border: 1px solid transparent;
+      z-index: 10;
+      @include pre.basic-transition($duration: 0.4s);
+      opacity: 0;
+      pointer-events: none;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: -5px;
+        width: 10px;
+        height: 10px;
+        transform: rotate(45deg);
+        @include pre.basic-transition($duration: 0.4s);
+      }
+      &.span--open {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+    & input[type="submit"] {
+      @include pre.basic-transition($duration: 0.2s);
+      padding: 6px 30px;
+      cursor: pointer;
+      width: auto;
+    }
+  }
+}
+
+// COLOR MODIFICATION
+// .form-2 {
+//   background-color: #fff !important;
+//   border: 2px solid #333 !important;
+//   &__group {
+//     & label {
+//       color: #333 !important;
+//     }
+//     & input {
+//       border-color: #333 !important;
+//     }
+//     & span {
+//       color: #fff !important;
+//       background-color: #333 !important;
+//       &::before {
+//         background-color: #333 !important;
+//       }
+//     }
+//     & input[type="submit"] {
+//       background-color: #fff !important;
+//       color: #333 !important;
+//       border-color: #333 !important;
+//       &:hover {
+//         background-color: #333 !important;
+//         color: #fff !important;
+//       }
+//     }
+//   }
+// }
+// COLOR MODIFICATION

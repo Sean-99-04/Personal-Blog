@@ -1,0 +1,75 @@
+@use '../utilities/presets' as pre;
+
+// size / width / height / line-thickness / span-1 x-pos / span-1 y-pos / span-3 x-pos / span-3 y-pos /
+$menu-burger-size: (
+  "xs" 35px 35px 4px 8px 2px 8px -2px,
+  "sm" 40px 40px 5px 11px 2px 11px -2px,
+  "md" 45px 45px 6px 11px 4px 11px -4px,
+  "lg" 50px 50px 7px 11px 6px 11px -6px,
+  "xl" 55px 55px 8px 11px 8px 11px -8px,
+  "2xl" 60px 60px 8px 11px 11px 11px -11px
+);
+
+@each $name, $width, $height, $line-height, $t-x, $t-y, $b-x,
+  $b-y in $menu-burger-size
+{
+  .menu-burger-#{$name} {
+    @include pre.flex-center($direction: column, $justify: space-around);
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    min-width: $width;
+    max-width: $width;
+    min-height: $height;
+    max-height: $height;
+    @include pre.basic-transition($duration: 0.7s);
+    &:hover {
+      cursor: pointer;
+    }
+    & > span {
+      @include pre.basic-transition($duration: 0.7s);
+      width: 100%;
+      height: $line-height;
+      background-color: black;
+    }
+  }
+  #menu-burger-checkbox:checked + label.menu-burger-#{$name} {
+    transform: rotate(180deg);
+    & > span:nth-child(1) {
+      transform: rotate(45deg) translate($t-x, $t-y);
+    }
+    & > span:nth-child(2) {
+      opacity: 0;
+    }
+    & > span:nth-child(3) {
+      transform: rotate(-45deg) translate($b-x, $b-y);
+    }
+  }
+  #menu-burger-checkbox:checked
+    ~ .side-nav
+    #burger-container
+    > label.menu-burger-#{$name} {
+    transform: rotate(180deg);
+    & > span:nth-child(1) {
+      transform: rotate(45deg) translate($t-x, $t-y);
+    }
+    & > span:nth-child(2) {
+      opacity: 0;
+    }
+    & > span:nth-child(3) {
+      transform: rotate(-45deg) translate($b-x, $b-y);
+    }
+  }
+}
+#menu-burger-checkbox {
+  display: none;
+}
+// == THE HTML CODE NEEDED == //
+// <input type="checkbox" id="menu-burger-checkbox" />
+// <label for="menu-burger-checkbox" class="menu-burger-lg" id="menu-burger-nav">
+//     <span></span>
+//     <span></span>
+//     <span></span>
+// </label>
+// == END OF HTML CODE == //

@@ -1,16 +1,22 @@
 const mongoose = require("mongoose");
 
-const mySchema = new mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  name: {
+const Article = new mongoose.Schema({
+  title: {
     type: String,
     required: true,
   },
-  age: Number,
   dateCreated: {
     type: Date,
     default: new Date(),
   },
+  content: {
+    type: String,
+    required: true,
+  },
+  tags: {
+    type: Array,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("Pet", mySchema, "pets");
+module.exports = mongoose.model("Article", Article, "articles");

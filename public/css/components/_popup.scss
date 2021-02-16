@@ -1,0 +1,27 @@
+@use '../utilities/presets' as pre;
+
+.popup {
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include pre.basic-transition();
+  @include pre.flex-center();
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  &--open {
+    pointer-events: all;
+    opacity: 1;
+  }
+}
+/* <a href="" class="popupBtn">Login</a>
+<div class="popup" id="popup">
+    <form
+      action=""
+      method=""
+      class="popup__item"
+    ></form>
+</div> */

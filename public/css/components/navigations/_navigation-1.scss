@@ -1,0 +1,63 @@
+@use './../../utilities/presets' as pre;
+@use './../../utilities/variables' as var;
+
+.nav {
+  width: 100vw;
+  height: 120px;
+  background-color: #fff;
+  border-bottom: 1px solid #333;
+  @include pre.flex-center($justify: space-around);
+  position: relative;
+  & .empty {
+    display: none;
+  }
+  #menu-burger-nav {
+    display: none;
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+  @media screen and (max-width: var.$laptop) {
+    & > ul {
+      display: none;
+    }
+    .empty {
+      display: block;
+    }
+    #menu-burger-nav {
+      display: flex;
+    }
+  }
+}
+
+// === HTML CODE === //
+// <nav class="nav">
+// <p class="f-size-4xl">logo</p>
+// <p class="f-size-2xl">title</p>
+// <div class="empty"></div>
+// <ul>
+// <li>Home</li>
+// <li>About</li>
+// <li>Contact</li>
+// </ul>
+// <input type="checkbox" id="menu-burger-checkbox" />
+// <label for="menu-burger-checkbox" class="menu-burger-xl" id="menu-burger">
+// <span></span>
+// <span></span>
+// <span></span>
+// </label>
+// </nav>
+// === END OF HTML CODE === //
+
+// === COLOR MODIFICATION === //
+// .nav {
+//   background-color: $secondary-color;
+//   & > p,
+//   > ul {
+//     color: $primary-color;
+//   }
+//   & > #menu-burger > span {
+//     background-color: $primary-color;
+//   }
+// }
+// === END OF COLOR MODIFICATION === //

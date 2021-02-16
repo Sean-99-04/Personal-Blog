@@ -1,0 +1,49 @@
+{{#if articlePage}}
+  <form action="/editArticle/{{article._id}}?_method=PATCH" method="POST" class="a-f">
+    <input
+      type="text"
+      placeholder="title..."
+      name="title"
+      value="{{article.title}}"
+      class="a-f__input"
+    />
+    <textarea
+      name="content"
+      rows="6"
+      placeholder="content..."
+      class="a-f__input"
+    >{{article.content}}</textarea>
+    <input
+      type="text"
+      placeholder="tags..."
+      name="tags"
+      value="{{article.tags}}"
+      class="a-f__input"/>
+    <button type="submit" class="a-f__button">Submit Edit</button>
+  </form>
+{{/if}}
+
+{{#unless articlePage}}
+  <form action="/editArticle/{{this._id}}?_method=PATCH" method="POST" class="a-f">
+    <input
+      type="text"
+      placeholder="title..."
+      name="title"
+      value="{{this.title}}"
+      class="a-f__input"
+    />
+    <textarea
+      name="content"
+      rows="6"
+      placeholder="content..."
+      class="a-f__input"
+    >{{this.content}}</textarea>
+    <input
+      type="text"
+      placeholder="tags..."
+      name="tags"
+      value="{{this.tags}}"
+      class="a-f__input"/>
+    <button type="submit" class="a-f__button">Submit Edit</button>
+  </form>
+{{/unless}}

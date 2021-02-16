@@ -1,0 +1,413 @@
+@use 'utilities/foundation';
+@use 'utilities/variables' as var;
+@use 'utilities/colors' as c;
+@use 'utilities/presets' as pre;
+@use './components/lists/list-1';
+@use './components/menu-burger';
+@use './components/navigations/navigation-1';
+@use './components/side-navigations/side-nav-1';
+@use './components/cards/card-1';
+@use './components/side-menu';
+@use './components/footers/footer-1';
+@use './components/popup';
+@use './components/forms/form-1';
+@use './components/forms/form-2';
+@use './components/forms/article-form-1';
+@use './components/confirmation-box';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+
+html {
+  font-family: "Montserrat", sans-serif;
+}
+
+$secondary-color: #2c3531; // 2
+$tertiary-color: #116466; // 3
+$quinary-color: #d9b08c; // 5
+$primary-color: #ffcb9a; // 1
+$quaternary-color: #d1e8e2; // 4
+
+body {
+  @include pre.flex-center($direction: column);
+  background-color: $tertiary-color;
+}
+
+p {
+  margin: 1rem;
+  font-size: 25px;
+}
+
+.search-list {
+  & > li::first-letter {
+    text-transform: capitalize;
+  }
+}
+
+.categories-list {
+  & > li {
+    cursor: pointer;
+    &:hover {
+      background-color: mix(black, $secondary-color, 20);
+    }
+  }
+}
+
+.nav {
+  & > .logo {
+    & > a {
+      font-size: 40px;
+      padding: {
+        left: 10px;
+        right: 10px;
+      }
+      @media screen and (max-width: var.$phone) {
+        font-size: 30px;
+      }
+    }
+  }
+  & > .title {
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+    display: inline-flex;
+    max-width: 500px;
+    // border: 1px solid white;
+    @media screen and (max-width: var.$phone) {
+      font-size: 22px;
+    }
+  }
+  & > .empty {
+    display: inline-flex;
+    min-width: 100px;
+    max-width: 100px;
+    height: 100%;
+    border: 1px solid white;
+    @media screen and (min-width: var.$laptop) {
+      display: none;
+    }
+  }
+  & .hr-list {
+    padding-right: 40px;
+    &--dropdown {
+      box-shadow: 0 0 3px 1px $quaternary-color;
+    }
+    & .search-form {
+      @include pre.flex-center($direction: column);
+      min-width: 170px;
+      max-width: 170px;
+      // border: 1px solid white;
+      position: relative;
+
+      & > .search-list {
+        position: absolute;
+        top: 120%;
+        left: 15%;
+        width: 85%;
+        box-shadow: 0 0 3px 1px $quaternary-color;
+        & > li {
+          cursor: pointer;
+          padding: 4px;
+          &:hover {
+            background-color: mix(black, $secondary-color, 20);
+          }
+        }
+      }
+    }
+  }
+}
+
+.side-nav {
+  & > .vr-list {
+    margin-left: 20px;
+    & > input {
+      padding: 6px 10px;
+      border-radius: 5px;
+      width: 100%;
+    }
+    & .search-form {
+      position: relative;
+      // border: 1px solid white;
+
+      & > input {
+        font-size: 15px;
+        @media screen and (max-width: var.$phone) {
+          font-size: 25px;
+        }
+      }
+
+      & > .search-list {
+        position: absolute;
+        top: 120%;
+        left: 15%;
+        width: 85%;
+        box-shadow: 0 0 3px 1px $quaternary-color;
+
+        border: 1px solid white;
+
+        & > li {
+          cursor: pointer;
+          padding: 4px;
+          &:hover {
+            background-color: mix(black, $secondary-color, 20);
+          }
+        }
+      }
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline !important;
+}
+
+// COLOR MODIFICATIONS //
+.nav {
+  background-color: $secondary-color;
+  & > p,
+  > ul {
+    color: $primary-color;
+  }
+  & > #menu-burger-nav > span {
+    background-color: $primary-color;
+  }
+  & > .logo > a {
+    color: $primary-color;
+    text-decoration: none;
+  }
+}
+
+.side-nav {
+  border-left-color: $primary-color;
+  background-color: $secondary-color;
+  & > p,
+  > ul {
+    color: $primary-color;
+  }
+  & > #burger-container > #menu-burger-side-nav > span {
+    background-color: $primary-color;
+  }
+}
+
+.side-menu {
+  &--item {
+    &:hover {
+      color: $primary-color;
+    }
+    &:hover > i {
+      color: $primary-color;
+    }
+    &:hover > svg {
+      fill: $primary-color;
+    }
+  }
+  &--lever {
+    &:hover > svg {
+      fill: $primary-color;
+    }
+  }
+}
+
+.card-container {
+  .card {
+    background-color: $quaternary-color;
+    box-shadow: 0 0 15px 2px $secondary-color;
+    &--block {
+      max-height: 200px;
+      overflow: hidden;
+
+      & a {
+        color: $secondary-color;
+        &:hover {
+          color: mix(black, $primary-color, 20);
+        }
+      }
+      &.content {
+        background: -webkit-linear-gradient(#333, #333, #333, transparent);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      &.long {
+        max-height: none;
+      }
+    }
+    & > .socials {
+      & > a > i {
+        color: $secondary-color;
+        &:hover {
+          color: mix(black, $primary-color, 20);
+        }
+      }
+    }
+  }
+}
+
+.hr-list,
+.vr-list {
+  color: $primary-color;
+  fill: $primary-color;
+  border-color: $primary-color;
+  background-color: $secondary-color;
+  & a,
+  svg,
+  i,
+  span,
+  li,
+  label,
+  input {
+    color: $primary-color;
+    fill: $primary-color;
+    border-color: $primary-color;
+    background-color: $secondary-color;
+    // &::before {
+    //   background-color: $primary-color !important;
+    // }
+  }
+  & a,
+  li,
+  label {
+    &::before {
+      background-color: $primary-color !important;
+    }
+  }
+  & form {
+    & label {
+      & i {
+        color: $primary-color;
+        &::before {
+          background-color: none;
+        }
+      }
+    }
+    & input.search-category {
+      @include pre.basic-transition($duration: 0.3s);
+      border: none;
+      border-bottom: 2px solid rgba(255, 203, 154, 0);
+      position: relative;
+      &:focus {
+        border: none;
+        border-bottom: 2px solid $primary-color;
+        outline: none;
+      }
+    }
+  }
+}
+.hr-list {
+  &--dropdown {
+    box-shadow: 0 0 3px 1px $quaternary-color;
+  }
+}
+
+.footer {
+  border-top-color: $primary-color !important;
+  background-color: $secondary-color !important;
+  & > .section {
+    color: #fff;
+  }
+  & .menu {
+    &--title {
+      border-bottom-color: #fff;
+    }
+  }
+  & .socials {
+    & > a {
+      &:hover > i {
+        color: $primary-color !important;
+      }
+      & > i {
+        color: #fff;
+      }
+    }
+  }
+  & .footer-form {
+    & button {
+      &:hover {
+        background-color: $primary-color !important;
+      }
+    }
+  }
+  &--sub {
+    border-top-color: $primary-color !important;
+    background-color: $secondary-color !important;
+    & > a {
+      color: #fff;
+    }
+  }
+}
+
+.form {
+  background-color: $secondary-color;
+  border-color: $primary-color;
+  & > button {
+    color: $primary-color;
+    background-color: $secondary-color;
+    border-color: $primary-color;
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}
+
+// Article Form
+.a-f {
+  background-color: #fff;
+  border-color: #333;
+  &__input {
+    border-color: #333;
+  }
+  &__button {
+    background-color: #fff;
+    border-color: #333;
+    &:hover {
+      background-color: #333;
+      color: #fff;
+    }
+  }
+}
+
+.confirmation-box {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  & > .block {
+    & > button {
+      background-color: #333;
+      border: 1px solid #fff;
+      color: #fff;
+      &:hover {
+        background-color: #fff;
+        color: #333;
+      }
+    }
+  }
+}
+
+.form-2 {
+  background-color: #fff !important;
+  border: 2px solid #333 !important;
+  &__group {
+    & label {
+      color: #333 !important;
+    }
+    & input {
+      border-color: #333 !important;
+    }
+    & span {
+      color: #fff !important;
+      background-color: #333 !important;
+      &::before {
+        background-color: #333 !important;
+      }
+    }
+    & input[type="submit"] {
+      background-color: #fff !important;
+      color: #333 !important;
+      border-color: #333 !important;
+      &:hover {
+        background-color: #333 !important;
+        color: #fff !important;
+      }
+    }
+  }
+}
+// END OF COLOR MODIFICATIONS //

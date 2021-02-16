@@ -1,0 +1,74 @@
+@use './../../utilities/presets' as pre;
+
+// Article Form
+.a-f {
+  width: 350px;
+  height: auto;
+  padding: 15px 25px;
+  border: 3px solid #333;
+  border-radius: 8px;
+  @include pre.flex-center($direction: column);
+  &__input {
+    min-width: 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 15px;
+    border: 2px solid #333;
+    border-radius: 5px;
+  }
+  &__button {
+    padding: 5px 25px;
+    border: 2px solid #333;
+    border-radius: 3px;
+    @include pre.basic-transition($duration: 0.2s);
+    cursor: pointer;
+  }
+}
+
+// === COLOR MODIFICATION === //
+// .a-f {
+//   background-color: #fff;
+//   border-color: #333;
+//   &__input {
+//     border-color: #333;
+//   }
+//   &__button {
+//     background-color: #fff;
+//     border-color: #333;
+//     &:hover {
+//       background-color: #333;
+//       color: #fff;
+//     }
+//   }
+// }
+// === END OF COLOR MODIFICATION === //
+
+// === HTML CODE === //
+// <form action="/post-article" method="POST" class="a-f">
+//       <input
+//         type="text"
+//         placeholder="title..."
+//         name="title"
+//         value="The Roman Empire"
+//         class="a-f__input"
+//       />
+//       <textarea
+//         name="content"
+//         cols="30"
+//         rows="10"
+//         placeholder="content..."
+//         class="a-f__input"
+//       >
+// Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad ab aliquid eveniet, ut ipsum alias!</textarea
+//       >
+//       <input
+//         type="text"
+//         placeholder="tags..."
+//         name="tags"
+//         value="history, romans, empires"
+//         class="a-f__input"
+//       />
+//       <button type="submit" class="a-f__button">Submit</button>
+//     </form>
+// === END OF HTML CODE === //

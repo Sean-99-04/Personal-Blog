@@ -1,0 +1,83 @@
+@use 'colors' as c;
+@use 'variables' as var;
+
+@mixin text-lg($size: 30px, $color: c.$light-red) {
+  font-size: $size;
+  color: $color;
+}
+
+@mixin flex-center(
+  $display: flex,
+  $align: center,
+  $justify: center,
+  $direction: row
+) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin flex-start(
+  $display: flex,
+  $align: flex-start,
+  $justify: flex-start,
+  $direction: column
+) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin basic-transition(
+  $timing-function: ease,
+  $property: all,
+  $duration: 0.5s
+) {
+  transition-property: $property;
+  transition-duration: $duration;
+  transition-timing-function: $timing-function;
+}
+
+.nav-list {
+  @include flex-center($display: inline-flex, $align: top);
+  & > li {
+    height: 100%;
+    // padding-bottom: 10px;
+    &:hover > .dropdown-list {
+      height: auto;
+      pointer-events: all;
+    }
+  }
+  & > input[type="text"] {
+    width: 4rem;
+    height: 1rem;
+    border: none;
+    border-radius: 3px;
+    padding-left: 5px;
+    @include basic-transition();
+    &:focus {
+      width: 8rem;
+    }
+  }
+}
+
+.dropdown-list {
+  @include flex-center(
+    $direction: column,
+    $align: flex-start,
+    $justify: space-between
+  );
+  @include basic-transition();
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  & > li {
+    cursor: pointer;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}

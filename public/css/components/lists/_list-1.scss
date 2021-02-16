@@ -1,0 +1,194 @@
+@use '../../utilities/presets' as pre;
+@use '../../utilities/variables' as var;
+
+// For JavaScript
+.list-open {
+  pointer-events: all !important;
+  opacity: 1 !important;
+}
+// End of "for JavaScript"
+
+// ===== HORIZONTAL LIST ===== //
+
+.hr-list {
+  @include pre.flex-center($display: inline-flex, $justify: space-around);
+  list-style-type: none;
+  position: relative;
+  & > li {
+    padding: 0 6px;
+    margin-left: 8px;
+    position: relative;
+    & > a {
+      text-decoration: none;
+    }
+  }
+  & .dropdown-label {
+    padding: 8px 6px;
+    cursor: pointer;
+    @include pre.flex-center();
+    & > span {
+      padding-right: 8px;
+    }
+    & > svg {
+      @include pre.basic-transition();
+    }
+  }
+
+  &--dropdown {
+    @include pre.flex-center(
+      $align: flex-start,
+      $justify: flex-start,
+      $direction: column
+    );
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0px;
+    overflow: hidden;
+    pointer-events: none;
+    @include pre.basic-transition();
+    opacity: 0;
+    box-shadow: 0 0 3px 1px #333;
+    & > li {
+      width: 100%;
+      padding: 3px 5px;
+    }
+  }
+}
+
+// HTML CODE
+// <ul class="hr-list">
+// <li><a href="">HOME</a></li>
+// <li><a href="">ABOUT</a></li>
+// <li>
+//   <label class="dropdown-label dropLabel"
+//     ><span>CATEGORIES</span>
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       width="12"
+//       height="12"
+//       viewBox="0 0 24 24"
+//     >
+//       <path d="M12 21l-12-18h24z" /></svg
+//   ></label>
+//   <ul class="hr-list--dropdown dropList">
+//     <li>Science</li>
+//     <li>History</li>
+//     <li>Mathematics</li>
+//     <li>Linguistics</li>
+//     <li>Language</li>
+//   </ul>
+// </li>
+// </ul>
+// END OF HTML CODE
+// ===== END OF HORIZONTAL LIST ===== //
+
+// ===== VERTICAL LIST ===== //
+
+.vr-list {
+  @include pre.flex-center(
+    $display: inline-flex,
+    $direction: column,
+    $align: flex-start
+  );
+  list-style-type: none;
+  & > li {
+    padding: 4px 12px;
+    padding-left: 0.7em;
+    position: relative;
+    & span,
+    svg {
+      cursor: pointer;
+    }
+    & > a,
+    label {
+      border: 1px solid rgba(0, 0, 0, 0);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 0.2em;
+        height: 70%;
+        width: 0.12em;
+        background-color: #333;
+      }
+      & > svg {
+        @include pre.basic-transition();
+      }
+    }
+  }
+  &--dropdown {
+    @include pre.basic-transition();
+    list-style-type: none;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    & > li {
+      padding: 3px 6px;
+      font-size: 0.8em;
+    }
+  }
+  & a {
+    text-decoration: none;
+  }
+}
+
+//HTML CODE
+// <ul class="vr-list">
+//   <li><a href="">Home</a></li>
+//   <li><a href="">About</a></li>
+//   <li>
+//     <label class="dropdown-label dropLabel"
+//       ><span>Categories</span>
+//       <svg
+//         xmlns="http://www.w3.org/2000/svg"
+//         width="12"
+//         height="12"
+//         viewBox="0 0 24 24"
+//       >
+//         <path d="M12 21l-12-18h24z" /></svg
+//     ></label>
+//     <ul class="vr-list--dropdown dropList">
+//       <li>Science</li>
+//       <li>History</li>
+//       <li>Mathematics</li>
+//     </ul>
+//   </li>
+//   <li><a href="">+ More</a></li>
+//   <input type="text" placeholder="Search..." class="search-category" />
+// </ul>
+// END OF HTML CODE
+
+// ===== END OF VERTICAL LIST ===== //
+
+// CSS COLOR CHANGE
+// .hr-list,
+// .vr-list {
+//   color: $primary-color;
+//   fill: $primary-color;
+//   border-color: $primary-color;
+//   background-color: $secondary-color;
+//   & a,
+//   svg,
+//   i,
+//   span,
+//   li,
+//   label,
+//   input {
+//     color: $primary-color;
+//     fill: $primary-color;
+//     border-color: $primary-color;
+//     background-color: $secondary-color;
+//     &::before {
+//       background-color: $primary-color !important;
+//     }
+//   }
+// }
+// .hr-list {
+//   &--dropdown {
+//     box-shadow: 0 0 3px 1px $quaternary-color;
+//   }
+// }
+// END OF CSS COLOR CHANGE
