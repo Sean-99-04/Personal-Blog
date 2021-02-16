@@ -2,7 +2,10 @@
 @use './../../utilities/variables' as var;
 
 #menu-burger-checkbox:checked ~ .side-nav {
-  left: 0;
+  right: 0;
+  @media screen and (max-width: var.$phone) {
+    left: 0;
+  }
 }
 
 .side-nav {

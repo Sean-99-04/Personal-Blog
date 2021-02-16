@@ -25,10 +25,12 @@ $tertiary-color: #116466; // 3
 $quinary-color: #d9b08c; // 5
 $primary-color: #ffcb9a; // 1
 $quaternary-color: #d1e8e2; // 4
+// $quaternary-color: #fff; // 4
 
 body {
   @include pre.flex-center($direction: column);
-  background-color: $tertiary-color;
+  background-color: mix(white, $quaternary-color, 40);
+  // background-color: $quaternary-color;
 }
 
 p {
@@ -53,6 +55,7 @@ p {
 
 .nav {
   & > .logo {
+    display: none; // Change this to bring logo back
     // border: 1px solid white;
     & > a {
       font-size: 40px;
@@ -75,6 +78,10 @@ p {
     // border: 1px solid white;
     @media screen and (max-width: var.$phone) {
       font-size: 22px;
+    }
+    & > a {
+      color: $primary-color;
+      text-decoration: none;
     }
   }
   & > .empty {
@@ -214,7 +221,8 @@ p {
 
 .card-container {
   .card {
-    background-color: $quaternary-color;
+    // background-color: $quaternary-color;
+    background-color: mix(white, $quaternary-color, 20);
     box-shadow: 0 0 15px 2px $secondary-color;
     &--block {
       max-height: 200px;

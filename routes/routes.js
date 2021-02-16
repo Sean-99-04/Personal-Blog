@@ -324,7 +324,7 @@ router.get("/search-articles/:tag", (req, res) => {
 
 router.post(
   "/subscribe",
-  body("name").not().isEmpty().trim().escape(),
+  // body("name").not().isEmpty().trim().escape(),
   body("email").isEmail().normalizeEmail(),
   (req, res) => {
     // Validation
@@ -333,14 +333,15 @@ router.post(
       return console.log(errors);
     }
 
-    const { name, email } = req.body;
+    // const { name, email } = req.body;
+    const { email } = req.body;
 
     Subscriber.findOne({ email })
       .exec()
       .then((user) => {
         if (!user) {
           const subscriber = new Subscriber({
-            name,
+            // name,
             email,
           });
           subscriber

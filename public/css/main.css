@@ -795,7 +795,12 @@ html {
 }
 
 #menu-burger-checkbox:checked ~ .side-nav {
-  left: 0;
+  right: 0;
+}
+@media screen and (max-width: 480px) {
+  #menu-burger-checkbox:checked ~ .side-nav {
+    left: 0;
+  }
 }
 
 .side-nav {
@@ -1453,7 +1458,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #116466;
+  background-color: #e3f1ee;
 }
 
 p {
@@ -1472,6 +1477,9 @@ p {
   background-color: #232a27;
 }
 
+.nav > .logo {
+  display: none;
+}
 .nav > .logo > a {
   font-size: 40px;
   padding-left: 0px;
@@ -1496,6 +1504,10 @@ p {
   .nav > .title {
     font-size: 22px;
   }
+}
+.nav > .title > a {
+  color: #ffcb9a;
+  text-decoration: none;
 }
 .nav > .empty {
   display: -webkit-inline-box;
@@ -1632,7 +1644,7 @@ p {
 }
 
 .card-container .card {
-  background-color: #d1e8e2;
+  background-color: #daede8;
   -webkit-box-shadow: 0 0 15px 2px #2c3531;
           box-shadow: 0 0 15px 2px #2c3531;
 }
